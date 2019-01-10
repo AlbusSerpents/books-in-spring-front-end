@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { AuthStorageService } from './auth-storage.service';
+import { AuthStorageService } from '../auth/auth-storage.service';
 
 @Injectable()
 export class ConnectorService {

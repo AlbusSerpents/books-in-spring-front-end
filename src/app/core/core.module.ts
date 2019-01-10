@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConnectorService } from './connector.service';
-import { AuthStorageService } from './auth-storage.service';
+import { ConnectorService } from './http/connector.service';
+import { AuthStorageService } from './auth/auth-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 

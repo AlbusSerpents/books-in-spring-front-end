@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Role } from './roles';
+import { Role } from '../roles';
 
 @Injectable()
 export class AuthStorageService {

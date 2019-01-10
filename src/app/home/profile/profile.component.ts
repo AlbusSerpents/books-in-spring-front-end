@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
-import { AuthStorageService } from '../../core/auth-storage.service';
+import { AuthStorageService } from '../../core/auth/auth-storage.service';
 import { User } from '../interfaces/login.interface';
 
 @Component({

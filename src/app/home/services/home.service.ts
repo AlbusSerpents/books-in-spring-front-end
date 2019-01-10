@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ConnectorService } from '../../core/connector.service';
-import { AuthStorageService } from '../../core/auth-storage.service';
+import { ConnectorService } from '../../core/http/connector.service';
+import { AuthStorageService } from '../../core/auth/auth-storage.service';
 import {
   LoginRequest,
   LoginResponse,
