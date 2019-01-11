@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './home/home-screen/home-screen.component';
 import { ProfileComponent } from './home/profile/profile.component';
+import { UsersGuard } from './core/guards/users.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [UsersGuard]
   }
 ];
 
