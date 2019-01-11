@@ -7,9 +7,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { UsersGuard } from './guards/users.guard';
 import { UsersChildGuard } from './guards/users-child.guard';
+import { LibrariansGuard } from './guards/librarians.guard';
+import { LibrariansChildGuard } from './guards/librarians-child.guard';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, BrowserModule, RouterModule],
-  providers: [ConnectorService, AuthStorageService, UsersGuard, UsersChildGuard]
+  providers: [
+    ConnectorService,
+    AuthStorageService,
+    UsersGuard,
+    UsersChildGuard,
+    LibrariansGuard,
+    LibrariansChildGuard
+  ]
 })
 export class CoreModule {}

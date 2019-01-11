@@ -3,24 +3,25 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  CanActivateChild,
   Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthStorageService } from '../auth/auth-storage.service';
 
-@Injectable()
-export class UsersChildGuard implements CanActivateChild {
+@Injectable({
+  providedIn: 'root'
+})
+export class LibrariansChildGuard implements CanActivate {
   constructor(
     private authStorage: AuthStorageService,
     private router: Router
   ) {}
 
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
+  canActivate(
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authStorage.isLoggedIn() && this.authStorage.isUser()) {
+    if (this.authStorage.isLoggedIn() && this.authStorage.isLibrarian()) {
       return true;
     } else {
       this.router.navigate(['home']);
