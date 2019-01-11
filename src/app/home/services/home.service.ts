@@ -8,6 +8,8 @@ import {
 } from '../interfaces/login.interface';
 
 import { Role } from '../../core/roles';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HomeService {
@@ -16,26 +18,30 @@ export class HomeService {
     private authService: AuthStorageService
   ) {}
 
-  public login(request: LoginRequest): Promise<User> {
+  public login(request: LoginRequest): Observable<User> {
     return this.connector
       .publicPost<LoginRequest, LoginResponse>('users/login', request)
-      .then(response => {
-        this.authService.setSessionId(
-          response.sessionId,
-          response.user.id,
-          Role.USER
-        );
-        return response.user;
-      });
+      .pipe(
+        map(response => {
+          this.authService.setSessionId(
+            response.sessionId,
+            response.user.id,
+            Role.USER
+          );
+          return response.user;
+        })
+      );
   }
 
-  public getProfile(userId: string): Promise<User> {
+  public getProfile(userId: string): Observable<User> {
     return this.connector.get(`users/profile/${userId}`);
   }
 
-  public logout(): Promise<void> {
-    return this.connector.delete(`users/logout`).then(any => {
-      this.authService.clearUserData();
-    });
+  public logout(): Observable<void> {
+    return this.connector.delete(`users/logout`).pipe(
+      map(any => {
+        this.authService.clearUserData();
+      })
+    );
   }
 }

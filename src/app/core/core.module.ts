@@ -9,6 +9,7 @@ import { UsersGuard } from './guards/users.guard';
 import { UsersChildGuard } from './guards/users-child.guard';
 import { LibrariansGuard } from './guards/librarians.guard';
 import { LibrariansChildGuard } from './guards/librarians-child.guard';
+import { AlertService } from './alerts/alert.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, BrowserModule, RouterModule],
@@ -18,7 +19,8 @@ import { LibrariansChildGuard } from './guards/librarians-child.guard';
     UsersGuard,
     UsersChildGuard,
     LibrariansGuard,
-    LibrariansChildGuard
+    LibrariansChildGuard,
+    AlertService
   ]
 })
 export class CoreModule {}

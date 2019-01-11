@@ -3,66 +3,73 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthStorageService } from '../auth/auth-storage.service';
 
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ErrorResponse } from './error.response';
+
 @Injectable()
 export class ConnectorService {
   private baseUrl = 'http://localhost:8080/v1';
 
   constructor(private http: HttpClient, private authData: AuthStorageService) {}
 
-  public get<Request>(url: string): Promise<Request> {
+  public get<Response>(url: string): Observable<Response> {
     return this.http
-      .get<Request>(`${this.baseUrl}/${url}`, this.headers())
-      .toPromise();
+      .get<Response>(`${this.baseUrl}/${url}`, this.headers())
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
-  public publicGet<Request>(url: string): Promise<Request> {
+  public publicGet<Response>(url: string): Observable<Response> {
     return this.http
-      .get<Request>(`${this.baseUrl}/${url}`, this.publicHeaders())
-      .toPromise();
+      .get<Response>(`${this.baseUrl}/${url}`, this.publicHeaders())
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
   public post<Request, Response>(
     url: string,
     body: Request
-  ): Promise<Response> {
+  ): Observable<Response> {
     return this.http
       .post<Response>(`${this.baseUrl}/${url}`, body, this.headers())
-      .toPromise();
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
   public publicPost<Request, Response>(
     url: string,
     body: Request
-  ): Promise<Response> {
+  ): Observable<Response> {
     return this.http
       .post<Response>(`${this.baseUrl}/${url}`, body, this.publicHeaders())
-      .toPromise();
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
-  public put<Request, Response>(url: string, body: Request): Promise<Response> {
+  public put<Request, Response>(
+    url: string,
+    body: Request
+  ): Observable<Response> {
     return this.http
       .put<Response>(`${this.baseUrl}/${url}`, body, this.headers())
-      .toPromise();
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
   public publicPut<Request, Response>(
     url: string,
     body: Request
-  ): Promise<Response> {
+  ): Observable<Response> {
     return this.http
       .put<Response>(`${this.baseUrl}/${url}`, body, this.publicHeaders())
-      .toPromise();
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
-  public delete<Request>(url: string): Promise<Request> {
+  public delete<Response>(url: string): Observable<Response> {
     return this.http
-      .delete<Request>(`${this.baseUrl}/${url}`, this.headers())
-      .toPromise();
+      .delete<Response>(`${this.baseUrl}/${url}`, this.headers())
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
-  public publicDelete<Request>(url: string): Promise<Request> {
+  public publicDelete<Response>(url: string): Observable<Response> {
     return this.http
-      .delete<Request>(`${this.baseUrl}/${url}`, this.publicHeaders())
-      .toPromise();
+      .delete<Response>(`${this.baseUrl}/${url}`, this.publicHeaders())
+      .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
   private headers() {
@@ -78,5 +85,10 @@ export class ConnectorService {
       'application/json'
     );
     return { headers };
+  }
+
+  private handleError<A>(e): Observable<A> {
+    console.log(e);
+    throw e.error;
   }
 }
