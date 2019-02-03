@@ -5,9 +5,10 @@ import { CoreModule } from '../core/core.module';
 import { HomeService } from './services/home.service';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [HomeScreenComponent, ProfileComponent],
+  declarations: [HomeScreenComponent, ProfileComponent, NavbarComponent],
   imports: [CommonModule, CoreModule, RouterModule],
   providers: [HomeService],
   exports: [HomeScreenComponent]

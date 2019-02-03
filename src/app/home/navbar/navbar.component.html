@@ -1,0 +1,25 @@
+<div class='nav-bar'>
+  <div class='title'>Books in Spring</div>
+  <div class='buttons'>
+    <ul *ngIf="loggedIn">
+      <li class='menu-button'>
+        <button (click)="clubs()">Clubs</button>
+      </li>
+      <li class='menu-button'>
+        <button (click)="profile()">Profile</button>
+      </li>
+      <li class='menu-button'>
+        <button (click)="logout()">Logout</button>
+      </li>
+    </ul>
+    <ul *ngIf="!loggedIn">
+      <li class='menu-button'></li>
+      <li class='menu-button'>
+        <button (click)="login()">Login</button>
+      </li>
+      <li class='menu-button'>
+        <button (click)="register()">Register</button>
+      </li>
+    </ul>
+  </div>
+</div>
