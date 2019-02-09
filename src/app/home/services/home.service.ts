@@ -33,10 +33,6 @@ export class HomeService {
       );
   }
 
-  public getProfile(userId: string): Observable<User> {
-    return this.connector.get(`users/profile/${userId}`);
-  }
-
   public logout(): Observable<void> {
     return this.connector.delete(`users/logout`).pipe(
       map(any => {

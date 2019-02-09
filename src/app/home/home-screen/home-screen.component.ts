@@ -28,8 +28,8 @@ export class HomeScreenComponent {
 
   private publicNavbar: Navbar = {
     items: [
-      { label: 'Register', link: ['register'] },
-      { label: 'Login', link: ['login'] }
+      { label: 'Register', link: ['public', 'register'] },
+      { label: 'Login', link: ['public', 'login'] }
     ]
   };
 
