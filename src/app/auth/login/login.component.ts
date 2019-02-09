@@ -7,6 +7,7 @@ import { LoginRequest, newLoginRequest } from '../interfaces/auth.interfaces';
 import { NgForm, FormControl } from '@angular/forms';
 import { AlertService } from '../../core/alerts/alert.service';
 import { ErrorResponse, ErroCode } from '../../core/http/error.response';
+import { FormService } from '../../core/forms/forms.service';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private storageService: AuthStorageService,
     private alertService: AlertService,
     private service: AuthService,
+    private forms: FormService,
     private router: Router
   ) {}
 
@@ -39,9 +41,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login(loginForm: NgForm) {
     if (!loginForm.valid) {
-      Object.keys(loginForm.controls).forEach(key =>
-        loginForm.controls[key].markAsTouched()
-      );
+      this.forms.touchForm(loginForm);
     } else {
       this.loginSub$ = this.service.login(this.request).subscribe(
         success => {

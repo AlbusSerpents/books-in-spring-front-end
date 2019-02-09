@@ -10,9 +10,16 @@ import { UsersChildGuard } from './guards/users-child.guard';
 import { LibrariansGuard } from './guards/librarians.guard';
 import { LibrariansChildGuard } from './guards/librarians-child.guard';
 import { AlertService } from './alerts/alert.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, BrowserModule, RouterModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    BrowserModule,
+    RouterModule,
+    FormsModule
+  ],
   providers: [
     ConnectorService,
     AuthStorageService,
