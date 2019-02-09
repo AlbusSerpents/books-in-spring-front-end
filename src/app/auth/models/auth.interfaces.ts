@@ -5,7 +5,13 @@ export interface LoginRequest {
   password: string;
 }
 
-export interface LoginResponse {
+export interface RegistrationRequest {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface AuthenticationResponse {
   sessionId: string;
   user: User;
   roles: [Role];
@@ -19,6 +25,14 @@ export interface User {
 
 export function newLoginRequest(): LoginRequest {
   return {
+    email: '',
+    password: ''
+  };
+}
+
+export function newRegistrationRequest(): RegistrationRequest {
+  return {
+    name: '',
     email: '',
     password: ''
   };

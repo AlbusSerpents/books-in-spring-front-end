@@ -1,6 +1,15 @@
-<div class="login-screen">
-  <div class="login-form custom-div">
-    <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+<div class="registration-screen">
+  <div class="registration-form custom-div">
+    <form (ngSubmit)="register(registrationForm)" #registrationForm="ngForm">
+      <div class="form-element">
+        <div><label for="name">Name</label></div>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="request.name" id="name" required placeholder="Plese enter your name" />
+
+        <div class="inp-error" *ngIf="(name.dirty || name.touched) && !name.valid">
+          The name field is required
+        </div>
+      </div>
+
       <div class="form-element">
         <div><label for="email">Email</label></div>
         <input type="email" name="email" #email="ngModel" [(ngModel)]="request.email" id="email" required placeholder="Plese enter your email"
@@ -20,7 +29,7 @@
         </div>
       </div>
       <div class="auth-submit-button">
-        <input class="custom-div" type="submit" value="Login" />
+        <input class="custom-div" type="submit" value="Register" />
       </div>
     </form>
   </div>

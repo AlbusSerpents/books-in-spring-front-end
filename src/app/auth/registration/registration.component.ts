@@ -1,23 +1,26 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthStorageService } from '../../core/auth/auth-storage.service';
-import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
-import { NgForm, FormControl } from '@angular/forms';
+import { AuthStorageService } from '../../core/auth/auth-storage.service';
 import { AlertService } from '../../core/alerts/alert.service';
-import { ErrorResponse, ErroCode } from '../../core/http/error.response';
+import { AuthService } from '../services/auth.service';
 import { FormService } from '../../core/forms/forms.service';
-import { LoginRequest, newLoginRequest } from '../models/auth.interfaces';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { ErrorResponse, ErroCode } from '../../core/http/error.response';
+import {
+  RegistrationRequest,
+  newRegistrationRequest
+} from '../models/auth.interfaces';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['../auth.form.css', './login.component.css']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['../auth.form.css', './registration.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
-  private loginSub$: Subscription;
+export class RegistrationComponent implements OnInit, OnDestroy {
+  private registrationSub$: Subscription;
 
-  request: LoginRequest = newLoginRequest();
+  request: RegistrationRequest = newRegistrationRequest();
 
   constructor(
     private storageService: AuthStorageService,
@@ -34,20 +37,21 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.loginSub$) {
-      this.loginSub$.unsubscribe();
+    if (this.registrationSub$) {
+      this.registrationSub$.unsubscribe();
     }
   }
 
-  login(loginForm: NgForm) {
-    if (!loginForm.valid) {
-      this.forms.touchForm(loginForm);
+  register(registrationForm: NgForm) {
+    if (!registrationForm.valid) {
+      this.forms.touchForm(registrationForm);
     } else {
-      this.loginSub$ = this.service.login(this.request).subscribe(
+      this.registrationSub$ = this.service.register(this.request).subscribe(
         success => {
           this.navigateToHome();
         },
         (error: ErrorResponse) => {
+          console.log(error);
           const message = this.handleError(error);
           this.alertService.error(message);
         }
@@ -58,7 +62,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   private handleError(response: ErrorResponse): string {
     switch (response.code) {
       case ErroCode.AUTHENTICATION_FAILED:
-        return 'Login failed';
+        return 'Registartion failed';
+      case ErroCode.REGISTRATION_FAILED:
+        return 'The name or email is already in use';
       case ErroCode.REQUEST_VALIDATION_FAILED:
         return 'Form fields are not filled correctly';
       default:

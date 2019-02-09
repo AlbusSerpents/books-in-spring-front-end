@@ -8,12 +8,17 @@ import { LibrariansChildGuard } from './core/guards/librarians-child.guard';
 import { UsersChildGuard } from './core/guards/users-child.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { LibrariansGuard } from './core/guards/librarians.guard';
+import { RegistrationComponent } from './auth/registration/registration.component';
 
 const routes: Routes = [
   {
     path: 'public',
     component: HomeScreenComponent,
     children: [
+      {
+        path: 'register',
+        component: RegistrationComponent
+      },
       {
         path: 'login',
         component: LoginComponent
