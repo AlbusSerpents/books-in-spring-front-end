@@ -38,6 +38,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['profile']);
   }
 
+  public poll() {
+    this.router.navigate(['poll']);
+  }
+
+  public events() {
+    this.router.navigate(['profile']);
+  }
+
   public clubs() {
     this.router.navigate(['clubs']);
   }
