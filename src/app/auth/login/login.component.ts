@@ -11,14 +11,12 @@ import { ErrorResponse, ErroCode } from '../../core/http/error.response';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['../auth.form.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private loginSub$: Subscription;
 
   request: LoginRequest = newLoginRequest();
-
-  validForm = false;
 
   constructor(
     private storageService: AuthStorageService,
