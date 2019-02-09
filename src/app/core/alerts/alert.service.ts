@@ -7,11 +7,11 @@ export class AlertService {
     alertify.logPosition('bottom right');
   }
 
-  public error(message: string) {
+  public error(message: string): void {
     alertify.error(message);
   }
 
-  public success(message: string) {
+  public success(message: string): void {
     alertify.success(message);
   }
 }

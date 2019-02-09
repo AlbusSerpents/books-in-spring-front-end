@@ -1,0 +1,27 @@
+<div class="login-screen">
+  <div class="login-form custom-div">
+    <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+      <div class="form-element">
+        <div><label for="email">Email</label></div>
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="request.email" id="email" required placeholder="Plese enter your email"
+          email />
+
+        <div class="inp-error" *ngIf="(email.dirty || email.touched) && !email.valid">
+          A valid email is required
+        </div>
+      </div>
+      <div class="form-element">
+        <div><label for="password">Password</label></div>
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="request.password" id="password"
+          required placeholder="******" />
+
+        <div class="inp-error" *ngIf="(password.dirty || password.touched) && !password.valid">
+          Password is required
+        </div>
+      </div>
+      <div class="submit-button">
+        <input class="custom-div" type="submit" value="Login" />
+      </div>
+    </form>
+  </div>
+</div>

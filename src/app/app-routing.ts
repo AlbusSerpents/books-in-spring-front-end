@@ -6,12 +6,35 @@ import { UsersGuard } from './core/guards/users.guard';
 import { LogoutComponent } from './home/logout/logout.component';
 import { LibrariansChildGuard } from './core/guards/librarians-child.guard';
 import { UsersChildGuard } from './core/guards/users-child.guard';
+import { LoginComponent } from './auth/login/login.component';
+import { LibrariansGuard } from './core/guards/librarians.guard';
 
 const routes: Routes = [
   {
+    path: 'public',
+    component: HomeScreenComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: 'public/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'user',
+    component: HomeScreenComponent,
+    canActivate: [UsersGuard],
     canActivateChild: [UsersChildGuard],
     children: [
+      {
+        path: '',
+        component: HomeScreenComponent
+      },
       {
         path: 'logout',
         component: LogoutComponent
@@ -20,6 +43,8 @@ const routes: Routes = [
   },
   {
     path: 'librarian',
+    component: HomeScreenComponent,
+    canActivate: [LibrariansGuard],
     canActivateChild: [LibrariansChildGuard],
     children: [
       {
