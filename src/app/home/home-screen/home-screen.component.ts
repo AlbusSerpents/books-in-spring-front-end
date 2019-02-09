@@ -6,45 +6,52 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AlertService } from '../../core/alerts/alert.service';
 import { ErrorResponse } from '../../core/http/error.response';
+import { Navbar } from '../interfaces/nav-bar.interfaces';
+import { last } from '@angular/router/src/utils/collection';
+import { AuthStorageService } from '../../core/auth/auth-storage.service';
 
 @Component({
   selector: 'app-home-screen',
   templateUrl: './home-screen.component.html',
   styleUrls: ['./home-screen.component.css']
 })
-export class HomeScreenComponent implements OnDestroy {
-  private sub$: Subscription;
+export class HomeScreenComponent {
+  private userNavbar: Navbar = {
+    items: [
+      { label: 'Profile', link: ['user', 'profile'] },
+      { label: 'Poll', link: ['user', 'poll'] },
+      { label: 'Events', link: ['user', 'events'] },
+      { label: 'Clubs', link: ['user', 'clubs', 'all'] },
+      { label: 'Logout', link: ['user', 'logout'] }
+    ]
+  };
 
-  constructor(
-    private service: HomeService,
-    private router: Router,
-    private alertService: AlertService
-  ) {}
+  private publicNavbar: Navbar = {
+    items: [
+      { label: 'Register', link: ['register'] },
+      { label: 'Login', link: ['login'] }
+    ]
+  };
 
-  public login() {
-    const loginRequest: LoginRequest = {
-      email: 'abc@example.com',
-      password: '1234'
-    };
+  private librarianNavbar: Navbar = {
+    items: [
+      { label: 'Users', link: ['librarian', 'users'] },
+      { label: 'Poll', link: ['librarian', 'poll'] },
+      { label: 'Events', link: ['librarian', 'events'] },
+      { label: 'Clubs', link: ['librarian', 'clubs', 'all'] },
+      { label: 'Logout', link: ['librarian', 'logout'] }
+    ]
+  };
 
-    this.sub$ = this.service.login(loginRequest).subscribe(
-      next => {},
-      (error: ErrorResponse) => {
-        if (error.message) {
-          this.alertService.error(error.message);
-        } else {
-          this.alertService.error(error.code);
-        }
-      },
-      () => {
-        this.router.navigateByUrl('/profile');
-      }
-    );
-  }
+  constructor(private authService: AuthStorageService) {}
 
-  ngOnDestroy() {
-    if (this.sub$) {
-      this.sub$.unsubscribe();
+  getNavbar(): Navbar {
+    if (this.authService.isLibrarian()) {
+      return this.librarianNavbar;
+    } else if (this.authService.isUser()) {
+      return this.userNavbar;
+    } else {
+      return this.publicNavbar;
     }
   }
 }

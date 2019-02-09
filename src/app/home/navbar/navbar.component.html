@@ -1,29 +1,11 @@
 <div class='nav-bar'>
-  <div class='title'>Books in Spring</div>
+  <div class='title'>
+    <button class='no-style' (click)="navigateHome()">Books in Spring</button>
+  </div>
   <div class='buttons'>
-    <ul *ngIf="loggedIn">
-      <li class='menu-button'>
-        <button (click)="clubs()">Clubs</button>
-      </li>
-      <li class='menu-button'>
-        <button (click)="events()">Events</button>
-      </li>
-      <li class='menu-button'>
-        <button (click)="poll()">Poll</button>
-      </li>
-      <li class='menu-button'>
-        <button (click)="profile()">Profile</button>
-      </li>
-      <li class='menu-button'>
-        <button (click)="logout()">Logout</button>
-      </li>
-    </ul>
-    <ul *ngIf="!loggedIn">
-      <li class='menu-button'>
-        <button (click)="login()">Login</button>
-      </li>
-      <li class='menu-button'>
-        <button (click)="register()">Register</button>
+    <ul>
+      <li class='menu-button' *ngFor="let item of navbar.items">
+        <button (click)="redirect(item.link)">{{item.label}}</button>
       </li>
     </ul>
   </div>
