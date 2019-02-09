@@ -17,7 +17,7 @@ export class LogoutComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub$ = this.service
       .logout()
-      .subscribe(_ => this.router.navigate(['home']));
+      .subscribe(_ => this.router.navigate(['']));
   }
 
   ngOnDestroy() {

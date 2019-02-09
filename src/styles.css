@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+.custom-div {
+  background-color: rgb(21, 19, 19);
+  color: aliceblue;
+}
+
+.inp-error {
+  color: red;
+  font-size: 1.2rem;
+}

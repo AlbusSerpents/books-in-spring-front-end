@@ -1,11 +1,11 @@
-<div class='nav-bar'>
+<div class='nav-bar custom-div'>
   <div class='title'>
-    <button class='no-style' (click)="navigateHome()">Books in Spring</button>
+    <button class="custom-div no-style" (click)="navigateHome()">Books in Spring</button>
   </div>
-  <div class='buttons'>
+  <div class="buttons custom-div">
     <ul>
-      <li class='menu-button' *ngFor="let item of navbar.items">
-        <button (click)="redirect(item.link)">{{item.label}}</button>
+      <li class="menu-button" *ngFor="let item of navbar.items">
+        <button class="custom-div" (click)="redirect(item.link)">{{item.label}}</button>
       </li>
     </ul>
   </div>

@@ -1,9 +1,5 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { AuthStorageService } from '../../core/auth/auth-storage.service';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { HomeService } from '../services/home.service';
-import { AlertService } from '../../core/alerts/alert.service';
-import { Subscription } from 'rxjs';
 import { Navbar } from '../interfaces/nav-bar.interfaces';
 
 @Component({

@@ -1,13 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from '../services/home.service';
 
-import { LoginRequest, User } from '../interfaces/login.interface';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AlertService } from '../../core/alerts/alert.service';
-import { ErrorResponse } from '../../core/http/error.response';
 import { Navbar } from '../interfaces/nav-bar.interfaces';
-import { last } from '@angular/router/src/utils/collection';
 import { AuthStorageService } from '../../core/auth/auth-storage.service';
 
 @Component({
