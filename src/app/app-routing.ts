@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './home/home-screen/home-screen.component';
 import { ProfileComponent } from './home/profile/profile.component';
 import { UsersGuard } from './core/guards/users.guard';
+import { LogoutComponent } from './home/logout/logout.component';
+import { LibrariansChildGuard } from './core/guards/librarians-child.guard';
+import { UsersChildGuard } from './core/guards/users-child.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +17,26 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [UsersGuard]
+  },
+  {
+    path: 'user',
+    canActivateChild: [UsersChildGuard],
+    children: [
+      {
+        path: 'logout',
+        component: LogoutComponent
+      }
+    ]
+  },
+  {
+    path: 'librarian',
+    canActivateChild: [LibrariansChildGuard],
+    children: [
+      {
+        path: 'logout',
+        component: LogoutComponent
+      }
+    ]
   }
 ];
 
