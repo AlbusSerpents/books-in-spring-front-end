@@ -5,7 +5,7 @@ import { AuthStorageService } from '../auth/auth-storage.service';
 
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ErrorResponse } from './error.response';
+import { ErrorResponse, ErroCode } from './error.response';
 
 @Injectable()
 export class ConnectorService {
@@ -89,6 +89,10 @@ export class ConnectorService {
 
   private handleError<A>(e): Observable<A> {
     console.log(e);
+    const error: ErrorResponse = e.error;
+    if (error.code === ErroCode.AUTHENTICATION_REQUIRED) {
+      this.authData.clearUserData();
+    }
     throw e.error;
   }
 }

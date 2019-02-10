@@ -22,7 +22,7 @@ export class UsersGuard implements CanActivate {
     if (this.authStorage.isLoggedIn() && this.authStorage.isUser()) {
       return true;
     } else {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
       return false;
     }
   }

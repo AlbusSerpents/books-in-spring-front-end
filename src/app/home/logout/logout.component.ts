@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HomeService } from '../services/home.service';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { ErrorResponse, ErroCode } from '../../core/http/error.response';
 
 @Component({
   templateUrl: './logout.component.html',
@@ -15,9 +16,21 @@ export class LogoutComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private service: HomeService) {}
 
   ngOnInit() {
-    this.sub$ = this.service
-      .logout()
-      .subscribe(_ => this.router.navigate(['']));
+    this.sub$ = this.service.logout().subscribe(
+      _ => this.router.navigate(['']),
+      error => this.handleError,
+      () => {
+        this.router.navigate(['']);
+      }
+    );
+  }
+
+  private handleError(error: ErrorResponse): void {
+    console.log('Handling');
+    const code = error.code;
+    if (error.code === ErroCode.AUTHENTICATION_REQUIRED) {
+      this.router.navigate(['']);
+    }
   }
 
   ngOnDestroy() {

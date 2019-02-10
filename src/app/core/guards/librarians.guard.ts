@@ -24,7 +24,7 @@ export class LibrariansGuard implements CanActivate {
     if (this.authStorage.isLoggedIn() && this.authStorage.isLibrarian()) {
       return true;
     } else {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
       return false;
     }
   }

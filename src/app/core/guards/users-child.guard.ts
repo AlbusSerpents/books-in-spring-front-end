@@ -23,7 +23,7 @@ export class UsersChildGuard implements CanActivateChild {
     if (this.authStorage.isLoggedIn() && this.authStorage.isUser()) {
       return true;
     } else {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
       return false;
     }
   }
