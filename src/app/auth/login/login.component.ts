@@ -67,6 +67,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   private navigateToHome(): void {
-    this.router.navigate(['user']);
+    this.router.navigate(['public']);
   }
 }
