@@ -61,14 +61,11 @@
   width: 80%;
   margin: auto;
   padding-top: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
 }
 
 .book-info-wrapper {
   margin-top: 1rem;
   position: relative;
-  width: 30%;
 }
