@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <section class="search-wrapper custom-div">
+    <form #searchForm="ngForm" (ngSubmit)="submitSearch()">
+      <div class="search-position">
+        <div class="form-element">
+          <input class="search-field" type="text" name="name" #name="ngModel" [(ngModel)]="search.name" placeholder="Title..." />
+        </div>
+
+        <div class="form-element">
+          <input class="search-field" type="text" name="author" #name="ngModel" [(ngModel)]="search.author" placeholder="Author..." />
+        </div>
+
+        <div class="form-element">
+          <input class="search-field" type="number" name="year" #year="ngModel" [(ngModel)]="search.publishingYear"
+            placeholder="Published in..." />
+        </div>
+
+        <div class="submit-button-position">
+          <input class="submit-button" type="submit" value="Search" />
+        </div>
+      </div>
+    </form>
+  </section>
+  <section class="results-wrapper">
+    <div *ngFor="let book of books" class="book-info-wrapper">
+      <app-book-info [book]="book"></app-book-info>
+    </div>
+  </section>
+</div>

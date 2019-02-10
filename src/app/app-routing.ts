@@ -9,12 +9,18 @@ import { UsersChildGuard } from './core/guards/users-child.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { LibrariansGuard } from './core/guards/librarians.guard';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { BookInfoComponent } from './books/book-info/book-info.component';
+import { BooksListingComponent } from './books/books-listing/books-listing.component';
 
 const routes: Routes = [
   {
     path: 'public',
     component: HomeScreenComponent,
     children: [
+      {
+        path: '',
+        component: BooksListingComponent
+      },
       {
         path: 'register',
         component: RegistrationComponent
