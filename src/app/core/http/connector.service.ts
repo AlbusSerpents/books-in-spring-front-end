@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { AuthStorageService } from '../auth/auth-storage.service';
 
@@ -13,15 +13,21 @@ export class ConnectorService {
 
   constructor(private http: HttpClient, private authData: AuthStorageService) {}
 
-  public get<Response>(url: string): Observable<Response> {
+  public get<Response>(
+    url: string,
+    parameters?: HttpParams
+  ): Observable<Response> {
     return this.http
-      .get<Response>(`${this.baseUrl}/${url}`, this.headers())
+      .get<Response>(`${this.baseUrl}/${url}?`, this.options(parameters))
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
-  public publicGet<Response>(url: string): Observable<Response> {
+  public publicGet<Response>(
+    url: string,
+    parameters?: HttpParams
+  ): Observable<Response> {
     return this.http
-      .get<Response>(`${this.baseUrl}/${url}`, this.publicHeaders())
+      .get<Response>(`${this.baseUrl}/${url}`, this.publicOptions(parameters))
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
@@ -30,7 +36,7 @@ export class ConnectorService {
     body: Request
   ): Observable<Response> {
     return this.http
-      .post<Response>(`${this.baseUrl}/${url}`, body, this.headers())
+      .post<Response>(`${this.baseUrl}/${url}`, body, this.options())
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
@@ -39,7 +45,7 @@ export class ConnectorService {
     body: Request
   ): Observable<Response> {
     return this.http
-      .post<Response>(`${this.baseUrl}/${url}`, body, this.publicHeaders())
+      .post<Response>(`${this.baseUrl}/${url}`, body, this.publicOptions())
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
@@ -48,7 +54,7 @@ export class ConnectorService {
     body: Request
   ): Observable<Response> {
     return this.http
-      .put<Response>(`${this.baseUrl}/${url}`, body, this.headers())
+      .put<Response>(`${this.baseUrl}/${url}`, body, this.options())
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
@@ -57,34 +63,34 @@ export class ConnectorService {
     body: Request
   ): Observable<Response> {
     return this.http
-      .put<Response>(`${this.baseUrl}/${url}`, body, this.publicHeaders())
+      .put<Response>(`${this.baseUrl}/${url}`, body, this.publicOptions())
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
   public delete<Response>(url: string): Observable<Response> {
     return this.http
-      .delete<Response>(`${this.baseUrl}/${url}`, this.headers())
+      .delete<Response>(`${this.baseUrl}/${url}`, this.options())
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
   public publicDelete<Response>(url: string): Observable<Response> {
     return this.http
-      .delete<Response>(`${this.baseUrl}/${url}`, this.publicHeaders())
+      .delete<Response>(`${this.baseUrl}/${url}`, this.publicOptions())
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 
-  private headers() {
+  private options(parameters?: HttpParams) {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('X-Auth-Token', this.authData.getSessionId());
-    return { headers };
+    return { headers, parameters };
   }
 
-  private publicHeaders() {
+  private publicOptions(parameters?: HttpParams) {
     const headers = new HttpHeaders().append(
       'Content-Type',
       'application/json'
     );
-    return { headers };
+    return { headers, parameters };
   }
 
   private handleError<A>(e): Observable<A> {
