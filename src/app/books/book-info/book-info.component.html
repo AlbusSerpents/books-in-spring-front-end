@@ -1,0 +1,24 @@
+<button class="" (click)="goToDetails()">
+  <div class="book-info custom-div">
+    <section class="split title">
+      <span>{{book.name}}</span>
+    </section>
+    <section id="book-info-details" class="split">
+      <section class="column book-cover">
+        <img [src]="book.bookCover" width="100" height="100" />
+      </section>
+      <section class="column info">
+
+        <div class="element">
+          <div class="info-section">By: </div>
+          <span>{{book.author}}</span>
+        </div>
+
+        <div class="element">
+          <div class="info-section">Published in: </div>
+          <span>{{book.publishingYear}}</span>
+        </div>
+      </section>
+    </section>
+  </div>
+</button>
