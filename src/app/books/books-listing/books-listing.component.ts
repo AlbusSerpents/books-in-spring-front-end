@@ -46,9 +46,17 @@ export class BooksListingComponent implements OnInit, OnDestroy {
   }
 
   submitSearch(): void {
+    if (this.search$) {
+      this.search$.unsubscribe();
+    }
     this.search$ = this.executeSearch(this.search).subscribe(
       books => (this.books = books)
     );
+  }
+
+  cleanSearch(): void {
+    this.search = newBookSearch();
+    this.submitSearch();
   }
 
   private executeSearch(search: BookSearch): Observable<BookInfo[]> {

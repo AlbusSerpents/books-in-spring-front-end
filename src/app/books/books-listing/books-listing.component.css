@@ -31,14 +31,24 @@
   border-color: aliceblue;
   border-radius: 0.2rem;
   text-align: left;
-  width: 30rem;
+  width: 35rem;
 }
 
-.submit-button-position {
+.form-element .year-field {
+  color: rgb(21, 19, 19);
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-color: aliceblue;
+  border-radius: 0.2rem;
+  text-align: left;
+  width: 16rem;
+}
+
+.button-position {
   margin: 0.8rem 0.4rem;
 }
 
-.submit-button {
+.search-button {
   background-color: rgb(21, 19, 19);
   border-color: aliceblue;
   font-weight: bold;
@@ -46,8 +56,6 @@
   border-radius: 0.4rem;
   text-align: center;
 }
-
-
 
 .results-wrapper {
   width: 80%;

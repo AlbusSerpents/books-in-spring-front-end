@@ -11,12 +11,14 @@
         </div>
 
         <div class="form-element">
-          <input class="search-field" type="number" name="year" #year="ngModel" [(ngModel)]="search.publishingYear"
+          <input class="year-field" type="number" name="year" #year="ngModel" [(ngModel)]="search.publishingYear"
             placeholder="Published in..." />
         </div>
-
-        <div class="submit-button-position">
-          <input class="submit-button" type="submit" value="Search" />
+        <div class="button-position">
+          <input class="search-button" type="button" value="Clear" (click)="cleanSearch()" />
+        </div>
+        <div class="button-position">
+          <input class="search-button" type="submit" value="Search" />
         </div>
       </div>
     </form>
