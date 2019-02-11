@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BookInfo } from '../models/books.interfaces';
 import { Router, Params } from '@angular/router';
+import { BookInfo, newBookInfo } from '../models/book-listing.interfaces';
+import { newBookDetails } from '../models/book-details.interfaces';
 
 @Component({
   selector: 'app-book-info',
@@ -9,14 +10,7 @@ import { Router, Params } from '@angular/router';
 })
 export class BookInfoComponent {
   @Input()
-  public book: BookInfo = {
-    id: '222a73d1-8741-4700-8702-d4f684bf7c38',
-    name: 'Lord of the Rings',
-    author: 'J.R.R. Tolkin',
-    publishingYear: 1949,
-    bookCover:
-      'http://www.tolkienshop.com/contents/media/l_lotr-pb-blackrider2003.png'
-  };
+  book: BookInfo = newBookInfo();
 
   constructor(private router: Router) {}
 

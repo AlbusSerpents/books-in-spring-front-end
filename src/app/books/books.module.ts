@@ -5,11 +5,12 @@ import { CoreModule } from '../core/core.module';
 import { BooksListingComponent } from './books-listing/books-listing.component';
 import { PublicBooksService } from './services/public-books.service';
 import { FormsModule } from '@angular/forms';
+import { UsersBooksService } from './services/users-books.service';
 
 @NgModule({
   declarations: [BookInfoComponent, BooksListingComponent],
   imports: [CommonModule, CoreModule, FormsModule],
-  providers: [PublicBooksService],
+  providers: [PublicBooksService, UsersBooksService],
   exports: [BooksListingComponent]
 })
 export class BooksModule {}

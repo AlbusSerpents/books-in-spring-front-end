@@ -12,6 +12,16 @@ export interface BookSearch {
   publishingYear: number;
 }
 
+export function newBookInfo(): BookInfo {
+  return {
+    id: null,
+    name: null,
+    author: null,
+    bookCover: null,
+    publishingYear: null
+  };
+}
+
 export function newBookSearch(): BookSearch {
   return {
     name: null,
