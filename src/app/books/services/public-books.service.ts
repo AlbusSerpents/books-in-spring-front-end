@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConnectorService } from '../../core/http/connector.service';
-import { BookInfo, BookSearch } from '../models/books.interfaces';
+import { BookInfo, BookSearch } from '../models/book-listing.interfaces';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ERROR_COLLECTOR_TOKEN } from '@angular/platform-browser-dynamic/src/compiler_factory';
@@ -20,7 +20,6 @@ export class PublicBooksService {
     params = this.year(publishingYear, params);
 
     const requestParams = params.toString();
-    console.log(requestParams);
     return this.connector.publicGet<BookInfo[]>(`public/books?${params}`);
   }
 

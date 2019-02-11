@@ -4,7 +4,7 @@ import {
   BookInfo,
   BookSearch,
   newBookSearch
-} from '../models/books.interfaces';
+} from '../models/book-listing.interfaces';
 import { ActivatedRoute, ParamMap, PRIMARY_OUTLET } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';

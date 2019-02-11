@@ -26,7 +26,6 @@ export class LogoutComponent implements OnInit, OnDestroy {
   }
 
   private handleError(error: ErrorResponse): void {
-    console.log('Handling');
     const code = error.code;
     if (error.code === ErroCode.AUTHENTICATION_REQUIRED) {
       this.router.navigate(['']);
