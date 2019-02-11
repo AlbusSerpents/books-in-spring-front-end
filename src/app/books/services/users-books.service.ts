@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { ConnectorService } from '../../core/http/connector.service';
 import {
   RatingRequest,
-  CommentRequest
+  CommentRequest,
+  Comment
 } from '../models/book-details.interfaces';
 import { Observable } from 'rxjs';
 

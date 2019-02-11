@@ -40,10 +40,12 @@ export class PublicBooksService {
   }
 
   findDetails(bookId: string): Observable<BookDetails> {
-    return this.connector.get<BookDetails>(`public/books/${bookId}`);
+    return this.connector.publicGet<BookDetails>(`public/books/${bookId}`);
   }
 
   findContentsForBook(bookId: string): Observable<Marker[]> {
-    return this.connector.get<Marker[]>(`public/books/${bookId}/contents`);
+    return this.connector.publicGet<Marker[]>(
+      `public/books/${bookId}/contents`
+    );
   }
 }

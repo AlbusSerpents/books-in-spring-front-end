@@ -17,10 +17,10 @@ export class LogoutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub$ = this.service.logout().subscribe(
-      _ => this.router.navigate(['']),
+      _ => this.router.navigate(['public']),
       error => this.handleError,
       () => {
-        this.router.navigate(['']);
+        this.router.navigate(['public']);
       }
     );
   }
@@ -28,7 +28,7 @@ export class LogoutComponent implements OnInit, OnDestroy {
   private handleError(error: ErrorResponse): void {
     const code = error.code;
     if (error.code === ErroCode.AUTHENTICATION_REQUIRED) {
-      this.router.navigate(['']);
+      this.router.navigate(['public']);
     }
   }
 

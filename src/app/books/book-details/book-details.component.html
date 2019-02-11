@@ -1,0 +1,67 @@
+<div class="wrapper">
+  <section class="details">
+    <section class="info custom-div">
+
+      <section class="title">
+        <span>{{book.name}}</span>
+      </section>
+      <section class="book-info-details">
+        <section class="column book-cover">
+          <img [src]="book.bookCover" width="200" height="200" />
+        </section>
+        <section class="column info">
+
+          <div class="element">
+            <div class="info-section">By: </div>
+            <span>{{book.author}}</span>
+          </div>
+
+          <div class="element">
+            <div class="info-section">Published in: </div>
+            <span>{{book.publishingYear}}</span>
+          </div>
+
+          <div class="element">
+            <div *ngIf="showBookRating()" class="info-section">Rating: </div>
+            <span *ngIf="showBookRating()">{{book.rating}}</span>
+
+            <div *ngIf="hasRated" class="info-section">Your rating: </div>
+            <span *ngIf="hasRated">{{userRating}}</span>
+
+            <span *ngIf="showNaRating()">N/A</span>
+          </div>
+
+          <div *ngIf="canRate()" class="element add-rating">
+            <input class="rating-value" type="number" [(ngModel)]="userRating" min="0" max="100" />
+            <input class="submit-rating" type="submit" value="Rate" (click)="rate()" />
+          </div>
+        </section>
+      </section>
+
+    </section>
+    <section class="
+              contents custom-div">
+      <div class="book-contents">Contents</div>
+      <div class="contents-value">
+        <div *ngFor="let marker of contents">
+          <span>{{marker.name}}</span> / <span>{{marker.page}}</span>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="comments custom-div">
+    <div class="book-comments-title">Comments</div>
+    <div *ngIf="book.comments" class="book-comments">
+      <div class="comment" *ngFor="let comment of book.comments">
+        <div>
+          By: <span class="commenter">{{comment.commenter}}</span>
+        </div>
+        <div>{{comment.comment}}</div>
+      </div>
+    </div>
+    <div *ngIf="canModify" class="add-comment">
+      <input class="comment-value" type="text" placeholder="Write your comment..." [(ngModel)]="userComment" name="newComment" />
+      <input class="comment-button" type="submit" value="Comment" (click)=comment() />
+    </div>
+  </section>
+</div>

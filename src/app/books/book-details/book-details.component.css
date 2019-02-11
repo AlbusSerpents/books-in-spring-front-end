@@ -1,0 +1,173 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.details {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+  margin: auto;
+}
+
+.info {
+  display: flex;
+  padding: 1.2rem;
+  max-width: 400px;
+  max-height: 400px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.title {
+  margin: auto;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.element span {
+  font-size: 1.4rem;
+}
+
+.add-rating {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.add-rating input {
+  margin: auto;
+  padding: 0.2rem;
+  margin-top: 0.2rem;
+  width: 7rem;
+  border-radius: 0.4rem;
+}
+
+.add-rating .rating-value {
+  color: rgb(21, 19, 19);
+  background-color: aliceblue;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.add-rating .submit-rating {
+  color: aliceblue;
+  background-color: rgb(21, 19, 19);
+}
+
+.book-info-details {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 0.2rem;
+}
+
+.info-section {
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+
+
+.custom-div {
+  border-radius: 1.2rem;
+}
+
+.contents {
+  padding: 1.2rem;
+  font-weight: bold;
+}
+
+.book-contents {
+  margin: auto;
+  font-size: 2rem;
+  text-decoration: underline;
+  text-align: center;
+  height: 15%;
+}
+
+.contents-value {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-evenly;
+}
+
+.comments {
+  margin: 3rem;
+  min-height: 10rem;
+  padding: 1rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-comments-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.book-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  font-size: 1.4rem;
+  margin: 0.5rem;
+  width: 90%;
+  border-style: solid;
+  border-radius: 0.5rem;
+  border-color: aliceblue;
+  border-width: 0.2rem;
+  padding: 0.5rem;
+}
+
+.comment .commenter {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.6rem;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 1.3rem;
+  margin-bottom: 0.7rem;
+}
+
+.add-comment .comment-value {
+  width: 75%;
+  color: rgb(21, 19, 19);
+  background-color: aliceblue;
+}
+
+.add-comment .comment-button {
+  width: 10%;
+  color: aliceblue;
+  background-color: rgb(21, 19, 19);
+}
+
+.add-comment input {
+  border-radius: 0.4rem;
+  padding: 0.5re;
+}

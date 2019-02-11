@@ -11,6 +11,7 @@ import { LibrariansGuard } from './core/guards/librarians.guard';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { BookInfoComponent } from './books/book-info/book-info.component';
 import { BooksListingComponent } from './books/books-listing/books-listing.component';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: '',
         component: BooksListingComponent
+      },
+      {
+        path: 'book/details',
+        component: BookDetailsComponent
       },
       {
         path: 'register',
