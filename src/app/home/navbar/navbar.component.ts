@@ -18,6 +18,6 @@ export class NavbarComponent {
   }
 
   public navigateHome(): void {
-    this.router.navigate(['home']);
+    this.router.navigate(['public']);
   }
 }
