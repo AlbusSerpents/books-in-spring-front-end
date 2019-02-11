@@ -19,7 +19,7 @@ import { ErrorResponse } from '../../core/http/error.response';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  private id: string;
+  id: string;
 
   profile: Profile = newProfile();
 

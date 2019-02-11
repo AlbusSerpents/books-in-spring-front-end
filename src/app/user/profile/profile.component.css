@@ -1,11 +1,17 @@
 .profile-wrapper {
   display: flex;
-  padding: 3rem;
+  padding: 3rem 12rem;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .custom-div {
   border-radius: 1.4rem;
   padding: 1.5rem;
+}
+
+#profile {
+  max-height: 400px;
 }
 
 .profile-element {

@@ -1,0 +1,102 @@
+.wishlist-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.wishlist-title {
+  font-size: 1.6rem;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.wishes-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 1.5rem;
+}
+
+.wish {
+  min-height: 4.5rem;
+}
+
+.wish-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.remove-button {
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-color: aliceblue;
+  color: aliceblue;
+  font-weight: bolder;
+  background-color: rgb(21, 19, 19);
+}
+
+.wish-field {
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.wish-label {
+  margin-right: 0.4rem;
+  text-decoration: underline;
+}
+
+.splitter {
+  color: aliceblue;
+  width: 0.5rem;
+  width: 100%;
+  padding-bottom: 0;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.add-wish {
+  display: flex;
+  height: 10rem;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-fields {
+  width: 70%;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.input-field input {
+  width: 60%;
+  color: rgb(21, 19, 19);
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+}
+
+.add-button input {
+  height: 4rem;
+  width: 5re;
+  border-radius: 0.4rem;
+  border-color: aliceblue;
+  color: aliceblue;
+  font-weight: bolder;
+  background-color: rgb(21, 19, 19);
+}
+
+.wish-input {
+  border-radius: 0.4rem;
+  margin: inherit 1rem;
+}

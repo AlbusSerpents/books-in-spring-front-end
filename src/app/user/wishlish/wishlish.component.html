@@ -1,0 +1,44 @@
+<div class="wishlist-wrapper">
+  <div class="wishlist-title">Wishes</div>
+  <hr class="splitter" />
+  <div class="wishes-wrapper">
+    <div class="wish" *ngFor="let wish of wishlist; let i = index">
+      <div class="wish-fields">
+        <div>
+          <span class="wish-label">Title:</span>
+          <span class="wish-field">{{wish.name}}</span>
+        </div>
+        <div>
+          <span class="wish-label">Author:</span>
+          <span class="wish-field">{{wish.author}}</span>
+        </div>
+        <div>
+          <span class="wish-label">Pusblished in:</span>
+          <span class="wish-field">{{wish.publishingYear}}</span>
+        </div>
+        <button class="remove-button" (click)="removeWish(i)">X</button>
+      </div>
+      <hr class="splitter" />
+    </div>
+  </div>
+  <div class="add-wish">
+    <div class="input-fields">
+      <div class="input-field">
+        <label class="wish-input-label" for="title">Title:</label>
+        <input class="wish-input" [(ngModel)]="newWish.name" #title="ngModel" required name="name" id="title" />
+      </div>
+      <div class="input-field">
+        <label class="wish-input-label" for="authori">Author:</label>
+        <input class="wish-input" [(ngModel)]="newWish.author" #author="ngModel" required name="author" id="author" />
+      </div>
+      <div class="input-field">
+        <label class="wish-input-label" for="published">Pusblished in:</label>
+        <input class="wish-input" type="number" [(ngModel)]="newWish.publishingYear" #published="ngModel" required name="published"
+          id="published" />
+      </div>
+    </div>
+    <div class="add-button">
+      <input type="button" value="Add" (click)="addWish()" />
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="profile-wrapper">
-  <div class="custom-div">
+  <section id="profile" class="custom-div">
     <form (submit)="updateProfile(profileForm)" #profileForm="ngForm">
       <div class="profile-form">
         <div class="profile-element">
@@ -37,5 +37,8 @@
         <input type="submit" value="Update Profile" />
       </div>
     </form>
-  </div>
+  </section>
+  <section id="wishlish" class="custom-div">
+    <app-wishlish [wishlist]="profile.wishlist" [userId]="id"></app-wishlish>
+  </section>
 </div>

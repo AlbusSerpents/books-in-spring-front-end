@@ -29,3 +29,11 @@ export function newProfile(): Profile {
     wishlist: []
   };
 }
+
+export function newBookWish(): BookWish {
+  return {
+    name: null,
+    author: null,
+    publishingYear: null
+  };
+}
