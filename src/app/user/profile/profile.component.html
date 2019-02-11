@@ -1,0 +1,41 @@
+<div class="profile-wrapper">
+  <div class="custom-div">
+    <form (submit)="updateProfile(profileForm)" #profileForm="ngForm">
+      <div class="profile-form">
+        <div class="profile-element">
+          <label for="profile-name">Name:</label>
+          <input [(ngModel)]="profile.name" name="profileName" disabled />
+        </div>
+
+        <div class="profile-element">
+          <label for="profile-email">Email:</label>
+          <input type="email" [(ngModel)]="profile.email" id="profile-email" name="profileEmail" required />
+        </div>
+
+        <hr />
+
+        <div class="profile-element">
+          <label for="old-password">Old Password:</label>
+          <input type="password" [(ngModel)]="oldPassword" id="old-password" name="oldPassword" placeholder="******"
+            #oldPasswordInput="ngModel" />
+        </div>
+
+        <div class="profile-element">
+          <label for="new-password">New Password:</label>
+          <input type="password" [(ngModel)]="newPassword" id="new-password" name="newPassword" placeholder="******"
+            #newPasswordInput="ngModel" />
+        </div>
+      </div>
+
+      <div class="profile-element">
+        <label for="repeat-password">Repeat new password:</label>
+        <input type="password" [(ngModel)]="newPasswordRepeated" id="repeat-password" name="newPasswordRepeated"
+          placeholder="******" #newPasswordRepeatedInput="ngModel" />
+      </div>
+
+      <div class="update-profile-button">
+        <input type="submit" value="Update Profile" />
+      </div>
+    </form>
+  </div>
+</div>

@@ -14,10 +14,10 @@ import { AuthStorageService } from '../../core/auth/auth-storage.service';
 export class HomeScreenComponent {
   private userNavbar: Navbar = {
     items: [
-      { label: 'Profile', link: ['user', 'profile'] },
       { label: 'Poll', link: ['user', 'poll'] },
       { label: 'Events', link: ['user', 'events'] },
       { label: 'Clubs', link: ['user', 'clubs', 'all'] },
+      { label: 'Profile', link: ['user', 'profile'] },
       { label: 'Logout', link: ['user', 'logout'] }
     ]
   };

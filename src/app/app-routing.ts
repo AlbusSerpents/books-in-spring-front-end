@@ -12,6 +12,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { BookInfoComponent } from './books/book-info/book-info.component';
 import { BooksListingComponent } from './books/books-listing/books-listing.component';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
       {
         path: 'logout',
         component: LogoutComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       }
     ]
   },
