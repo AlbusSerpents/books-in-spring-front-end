@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { FormService } from '../../core/forms/forms.service';
 import { AlertService } from '../../core/alerts/alert.service';
-import { userInfo } from 'os';
 import { ErrorResponse } from '../../core/http/error.response';
 
 @Component({
