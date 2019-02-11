@@ -39,13 +39,18 @@
       </section>
 
     </section>
-    <section class="
-              contents custom-div">
-      <div class="book-contents">Contents</div>
-      <div class="contents-value">
-        <div *ngFor="let marker of contents">
-          <span>{{marker.name}}</span> / <span>{{marker.page}}</span>
+    <section class="contents custom-div">
+      <div class="content-wrapper">
+        <div class="book-contents">Contents</div>
+        <div class="contents-value">
+          <div *ngFor="let marker of contents">
+            <span>{{marker.name}}</span> / <span>{{marker.page}}</span>
+          </div>
         </div>
+      </div>
+      <div class="description-wrapper">
+        <div class="description-title">Plot summaty</div>
+        <div class="description-content">{{book.description}}</div>
       </div>
     </section>
   </section>

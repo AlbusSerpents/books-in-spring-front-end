@@ -86,9 +86,15 @@
   border-radius: 1.2rem;
 }
 
+
 .contents {
   padding: 1.2rem;
   font-weight: bold;
+  width: 30rem;
+}
+
+.content-wrapper {
+  height: 50%;
 }
 
 .book-contents {
@@ -102,9 +108,26 @@
 .contents-value {
   font-size: 1.4rem;
   display: flex;
-  flex-direction: column;
   height: 80%;
+  flex-direction: column;
   justify-content: space-evenly;
+}
+
+.description-wrapper {
+  height: 50%;
+}
+
+.description-title {
+  text-decoration: underline;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.description-content {
+  width: inherit;
+  position: relative;
 }
 
 .comments {
