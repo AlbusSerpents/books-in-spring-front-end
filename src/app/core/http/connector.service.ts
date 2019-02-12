@@ -18,7 +18,7 @@ export class ConnectorService {
     parameters?: HttpParams
   ): Observable<Response> {
     return this.http
-      .get<Response>(`${this.baseUrl}/${url}?`, this.options(parameters))
+      .get<Response>(`${this.baseUrl}/${url}`, this.options(parameters))
       .pipe(catchError(e => this.handleError<Response>(e)));
   }
 

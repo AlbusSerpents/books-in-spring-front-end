@@ -1,0 +1,97 @@
+.clubs-listing-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 8rem;
+  height: 100%;
+}
+
+.custom-div {
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 70% 20% 10%;
+  padding: 1rem 0;
+}
+
+.input-group {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-input {
+  color: rgb(21, 19, 19);
+  background-color: aliceblue;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  width: 45%;
+}
+
+.form-button {
+  background-color: rgb(21, 19, 19);
+  color: aliceblue;
+  border-radius: 0.4rem;
+  border-style: solid;
+  border-color: aliceblue;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.results {
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2rem;
+  width: 60%;
+}
+
+.club-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.club-info {
+  width: 75%;
+}
+
+.club-actions {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.club-top-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.club-row-element {
+  width: 25%;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.club-description {
+  font-size: 1.4rem;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.details-button {
+  width: 80%;
+  height: 60px;
+  background-color: rgb(21, 19, 19);
+  color: aliceblue;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  text-decoration: unset;
+}

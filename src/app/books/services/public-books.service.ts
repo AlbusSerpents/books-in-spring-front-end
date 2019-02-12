@@ -3,7 +3,6 @@ import { ConnectorService } from '../../core/http/connector.service';
 import { BookInfo, BookSearch } from '../models/book-listing.interfaces';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ERROR_COLLECTOR_TOKEN } from '@angular/platform-browser-dynamic/src/compiler_factory';
 import { BookDetails, Marker } from '../models/book-details.interfaces';
 
 @Injectable()
@@ -31,6 +30,7 @@ export class PublicBooksService {
   private author(author: string, params: HttpParams): HttpParams {
     return author ? params.set('author', author) : params;
   }
+
   private year(year: number, params: HttpParams): HttpParams {
     return year ? params.set('publishingYear', String(year)) : params;
   }

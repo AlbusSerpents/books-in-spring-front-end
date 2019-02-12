@@ -13,6 +13,7 @@ import { BookInfoComponent } from './books/book-info/book-info.component';
 import { BooksListingComponent } from './books/books-listing/books-listing.component';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { ClubsListingComponent } from './clubs/clubs-listing/clubs-listing.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'clubs/all',
+        component: ClubsListingComponent
       }
     ]
   },
@@ -71,6 +76,10 @@ const routes: Routes = [
       {
         path: 'logout',
         component: LogoutComponent
+      },
+      {
+        path: 'clubs/all',
+        component: ClubsListingComponent
       }
     ]
   }
