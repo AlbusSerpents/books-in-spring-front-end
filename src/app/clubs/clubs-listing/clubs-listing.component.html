@@ -17,26 +17,31 @@
     </div>
   </section>
   <section class="results custom-div">
-    <div *ngFor="let club of clubs; let i = index">
-      <div class="club-row">
-        <div class="club-info">
-          <div class="club-top-row">
-            <div>
-              Name: <span class="club-row-element">{{club.name}}</span>
-            </div>
-            <div>
-              Topic:<span class="club-row-element">{{club.topic}}</span>
-            </div>
-            <div>
-              Description: <span class="club-description">{{club.description}}</span>
+    <div *ngIf="foundAnything()">
+      <div *ngFor="let club of clubs; let i = index">
+        <div class="club-row">
+          <div class="club-info">
+            <div class="club-top-row">
+              <div>
+                Name: <span class="club-row-element">{{club.name}}</span>
+              </div>
+              <div>
+                Topic:<span class="club-row-element">{{club.topic}}</span>
+              </div>
+              <div>
+                Description: <span class="club-description">{{club.description}}</span>
+              </div>
             </div>
           </div>
+          <div class="club-actions">
+            <button class="details-button" (click)="details(club.id)">Details</button>
+          </div>
         </div>
-        <div class="club-actions">
-          <button class="details-button" (click)="details(club.id)">Details</button>
-        </div>
+        <hr *ngIf="showSplitter(i)" />
       </div>
-      <hr *ngIf="showSplitter(i)" />
+    </div>
+    <div class="no-results" *ngIf="!foundAnything()">
+      <span>No results found</span>
     </div>
   </section>
 </div>

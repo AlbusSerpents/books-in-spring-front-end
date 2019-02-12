@@ -101,6 +101,10 @@ export class ClubsListingComponent implements OnInit, OnDestroy {
     return this.disableSearch ? 'Show All Clubs' : 'Show My Clubs';
   }
 
+  foundAnything(): boolean {
+    return this.clubs && this.clubs.length > 0;
+  }
+
   showSplitter(index: number): boolean {
     return index < this.clubs.length - 1;
   }
