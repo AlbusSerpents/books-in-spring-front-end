@@ -72,7 +72,11 @@ export class ClubDetailsComponent implements OnInit, OnDestroy {
   }
 
   back() {
-    this.router.navigate(['user', 'clubs', 'all']);
+    if (this.userId) {
+      this.router.navigate(['user', 'clubs', 'all']);
+    } else {
+      this.router.navigate(['librarian', 'clubs', 'all']);
+    }
   }
 
   leave(): void {
@@ -155,9 +159,9 @@ export class ClubDetailsComponent implements OnInit, OnDestroy {
         () => {},
         (error: ErrorResponse) => {
           this.alertService.error(error.code);
-          this.router.navigate(['user', 'clubs', 'all']);
+          this.router.navigate(['librarian', 'clubs', 'all']);
         },
-        () => this.router.navigate(['user', 'clubs', 'all'])
+        () => this.router.navigate(['librarian', 'clubs', 'all'])
       );
     }
   }

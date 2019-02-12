@@ -8,7 +8,10 @@ import {
   LoginRequest,
   User,
   AuthenticationResponse,
-  RegistrationRequest
+  RegistrationRequest,
+  LibrariansLoginRequest,
+  LibrarinaAuthenticationResponse,
+  Librarian
 } from '../models/auth.interfaces';
 
 @Injectable({
@@ -20,7 +23,7 @@ export class AuthService {
     private authService: AuthStorageService
   ) {}
 
-  public login(request: LoginRequest): Observable<User> {
+  login(request: LoginRequest): Observable<User> {
     return this.connector
       .publicPost<LoginRequest, AuthenticationResponse>('users/login', request)
       .pipe(
@@ -31,7 +34,25 @@ export class AuthService {
       );
   }
 
-  public register(request: RegistrationRequest): Observable<User> {
+  librariansLogin(request: LibrariansLoginRequest): Observable<Librarian> {
+    return this.connector
+      .publicPost<LibrariansLoginRequest, LibrarinaAuthenticationResponse>(
+        'librarians/login',
+        request
+      )
+      .pipe(
+        map(({ sessionId, librarian }) => {
+          this.authService.setSessionId(
+            sessionId,
+            librarian.id,
+            Role.LIBRARIAN
+          );
+          return librarian;
+        })
+      );
+  }
+
+  register(request: RegistrationRequest): Observable<User> {
     return this.connector
       .publicPost<RegistrationRequest, AuthenticationResponse>(
         'users/register',

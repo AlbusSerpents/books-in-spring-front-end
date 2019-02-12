@@ -9,7 +9,7 @@
 
     <div class="input-group">
       <input class="form-button" value="Search" type="button" [disabled]="disableSearch" (click)="searchAll()" />
-      <input class="form-button" [value]="extraSearchButtonValue()" type="button" (click)="extraSearch()" />
+      <input *ngIf="isUser" class="form-button" [value]="extraSearchButtonValue()" type="button" (click)="extraSearch()" />
     </div>
 
     <div class="input-group" *ngIf="isUser">

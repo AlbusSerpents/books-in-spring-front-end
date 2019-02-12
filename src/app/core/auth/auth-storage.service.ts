@@ -15,6 +15,11 @@ export class AuthStorageService {
     localStorage.setItem(AuthStorageService.ROLE_KEY, role);
   }
 
+  public setLibrarinaSession(sessionId: string, role: Role) {
+    localStorage.setItem(AuthStorageService.SESSION_ID_KEY, sessionId);
+    localStorage.setItem(AuthStorageService.ROLE_KEY, role);
+  }
+
   public clearUserData() {
     localStorage.removeItem(AuthStorageService.SESSION_ID_KEY);
     localStorage.removeItem(AuthStorageService.ROLE_KEY);

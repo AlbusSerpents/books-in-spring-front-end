@@ -1,0 +1,26 @@
+<div class="login-screen">
+  <div class="login-form custom-div">
+    <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+      <div class="form-element">
+        <div><label for="username">Username</label></div>
+        <input name="username" #username="ngModel" [(ngModel)]="request.username" id="username" required placeholder="Plese enter your username" />
+
+        <div class="inp-error" *ngIf="(username.dirty || username.touched) && !username.valid">
+          Username is required
+        </div>
+      </div>
+      <div class="form-element">
+        <div><label for="password">Password</label></div>
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="request.password" id="password"
+          required placeholder="******" />
+
+        <div class="inp-error" *ngIf="(password.dirty || password.touched) && !password.valid">
+          Password is required
+        </div>
+      </div>
+      <div class="auth-submit-button">
+        <input class="custom-div" type="submit" value="Login" />
+      </div>
+    </form>
+  </div>
+</div>

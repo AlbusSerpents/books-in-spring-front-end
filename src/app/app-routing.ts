@@ -16,6 +16,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ClubsListingComponent } from './clubs/clubs-listing/clubs-listing.component';
 import { AddClubComponent } from './clubs/add-club/add-club.component';
 import { ClubDetailsComponent } from './clubs/club-details/club-details.component';
+import { LibrariansLoginComponent } from './auth/librarians-login/librarians-login.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,16 @@ const routes: Routes = [
       {
         path: 'clubs/add',
         component: AddClubComponent
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    component: HomeScreenComponent,
+    children: [
+      {
+        path: 'login',
+        component: LibrariansLoginComponent
       }
     ]
   },

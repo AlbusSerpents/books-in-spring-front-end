@@ -13,8 +13,16 @@ export class HomeService {
     private authService: AuthStorageService
   ) {}
 
-  public logout(): Observable<void> {
+  logout(): Observable<void> {
     return this.connector.delete(`users/logout`).pipe(
+      map(any => {
+        this.authService.clearUserData();
+      })
+    );
+  }
+
+  logoutLibrarinat(): Observable<void> {
+    return this.connector.delete(`librarians/logout`).pipe(
       map(any => {
         this.authService.clearUserData();
       })
