@@ -102,8 +102,6 @@ export class ClubsListingComponent implements OnInit, OnDestroy {
   }
 
   showSplitter(index: number): boolean {
-    console.log(index);
-    console.log(index < this.clubs.length - 1);
     return index < this.clubs.length - 1;
   }
 

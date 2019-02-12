@@ -14,6 +14,7 @@ import { BooksListingComponent } from './books/books-listing/books-listing.compo
 import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ClubsListingComponent } from './clubs/clubs-listing/clubs-listing.component';
+import { AddClubComponent } from './clubs/add-club/add-club.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
       {
         path: 'clubs/all',
         component: ClubsListingComponent
+      },
+      {
+        path: 'clubs/add',
+        component: AddClubComponent
       }
     ]
   },

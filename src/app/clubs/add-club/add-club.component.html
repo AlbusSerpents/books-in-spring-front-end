@@ -1,0 +1,39 @@
+<div class="create-club-wrapper">
+  <div class="club-form custom-div">
+    <form (ngSubmit)="submit(clubForm)" #clubForm="ngForm">
+      <div class="input-poition">
+        <div class="club-form-element">
+          <label for="name">Club Name</label>
+          <input name="name" #name="ngModel" [(ngModel)]="club.name" id="name" placeholder="Club's name" required />
+
+          <div class="inp-error" *ngIf="(name.dirty || name.touched) && !name.valid">
+            Please enter a name for your club
+          </div>
+        </div>
+
+        <div class="club-form-element">
+          <label for="topic">Topic</label>
+          <input name="topic" #topic="ngModel" [(ngModel)]="club.topic" id="topic" required placeholder="Club's topic" />
+
+          <div class="inp-error" *ngIf="(topic.dirty || topic.touched) && !topic.valid">
+            Please enter a topic for your club
+          </div>
+        </div>
+
+        <div class="club-form-element">
+          <label for="description">Description</label>
+          <input type="text" name="description" #description="ngModel" [(ngModel)]="club.description" id="description"
+            required placeholder="Describe your club's purpose" />
+
+          <div class="inp-error" *ngIf="(description.dirty || description.touched) && !description.valid">
+            Please enter a description for your club
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <input type="button" value="Back" (click)="back()" />
+        <input type="submit" value="Create" />
+      </div>
+    </form>
+  </div>
+</div>

@@ -43,6 +43,14 @@ export function newClubSearch(): ClubsSearch {
   };
 }
 
+export function newCreateClubRequest(): CreateClubRequest {
+  return {
+    name: null,
+    topic: null,
+    description: null
+  };
+}
+
 export function newClub(): Club {
   return {
     id: null,
