@@ -1,0 +1,36 @@
+<div class="club-details-wrapper custom-div">
+  <div class="title">{{club.name}}</div>
+  <section class="info">
+    <section class="club-info">
+
+      <div class="club-element">
+        <label for="club-topic">Topic:</label>
+        <input [value]="club.topic" id="club-topic" disabled />
+      </div>
+
+      <div class="club-element">
+        <label for="club-description">Description:</label>
+        <input [(ngModel)]="club.description" id="club-description" name="clubDescription" [disabled]="!canEdit" />
+      </div>
+
+      <div class="club-element" *ngIf="club.owner ">
+        <label for="club-owner">Owner:</label>
+        <input [value]="club.owner.name" id="club-owner" disabled />
+      </div>
+    </section>
+    <section class="members-info">
+      <div class="members-title">Members</div>
+      <div class="member-name" *ngFor="let member of club.members">
+        <span>{{member.name}}</span>
+      </div>
+    </section>
+  </section>
+  <hr class="splitter" />
+  <section class="buttons">
+    <input type="button" class="club-button" value="Back" (click)="back()">
+    <input type="button" *ngIf="canLeave" class="club-button" value="Leave" (click)="leave()">
+    <input type="button" *ngIf="canJoin" class="club-button" value="Join" (click)="join()">
+    <input type="button" *ngIf="canEdit" class="club-button" value="Edit" (click)="edit()">
+    <input type="button" *ngIf="canDelete" class="club-button" value="Delete" (click)="delete()">
+  </section>
+</div>

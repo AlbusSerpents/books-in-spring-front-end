@@ -15,6 +15,7 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
 import { ProfileComponent } from './user/profile/profile.component';
 import { ClubsListingComponent } from './clubs/clubs-listing/clubs-listing.component';
 import { AddClubComponent } from './clubs/add-club/add-club.component';
+import { ClubDetailsComponent } from './clubs/club-details/club-details.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
         component: ClubsListingComponent
       },
       {
+        path: 'clubs/details',
+        component: ClubDetailsComponent
+      },
+      {
         path: 'clubs/add',
         component: AddClubComponent
       }
@@ -85,6 +90,10 @@ const routes: Routes = [
       {
         path: 'clubs/all',
         component: ClubsListingComponent
+      },
+      {
+        path: 'clubs/details',
+        component: ClubDetailsComponent
       }
     ]
   }
